@@ -280,7 +280,7 @@
         <div class="hero-content">
             <h1 id="typed-heading"></h1>
             <div class="description">
-                Stay ahead with personalized data pipelines crafted by our research team. Get the latest updates on regulations, market trends, and essential insights — tailored to you and your business.
+                Stay ahead with personalized data pipelines crafted by our expert research team. Get the latest updates on regulations, market trends, and essential insights — tailored to you and your business.
             </div>
             
             <div class="features">
@@ -321,7 +321,11 @@
     <div style="height: 200vh;"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        window.addEventListener('load', function() {
             const text = "A Newsletter Just for You";
             const typedHeading = document.getElementById('typed-heading');
             let i = 0;
@@ -339,14 +343,22 @@
                     // Force layout recalculation to ensure proper wrapping
                     typedHeading.offsetHeight;
                     
-                    setTimeout(typeWriter, 50); // Slightly faster typing for mobile
+                    setTimeout(typeWriter, 75); // Increased delay between characters (was 50ms)
                 } else {
                     typedHeading.classList.add('finished-typing');
                     typedHeading.innerHTML = 'A Newsletter <b>Just</b> for You';
                 }
             }
 
-            typeWriter();
+            function startTyping() {
+                if (isMobile()) {
+                    setTimeout(typeWriter, 1500); // Increased initial delay for mobile (was 1000ms)
+                } else {
+                    setTimeout(typeWriter, 500); // Added a small delay for desktop
+                }
+            }
+
+            startTyping();
         });
     </script>
 </body>
