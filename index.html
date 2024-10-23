@@ -14,6 +14,7 @@
     <style>
         :root {
             --primary-green: #7BC67B;
+            --pale-green: #e6f3e6; /* Slightly darker pale green */
             --dark-text: #1A1A1A;
             --light-bg: #F9FAF9;
         }
@@ -26,7 +27,11 @@
         }
 
         body {
-            background: var(--light-bg);
+            background-color: var(--pale-green);
+            position: relative;
+            overflow: hidden;
+            overflow-y: auto;
+            height: auto;
             min-height: 100vh;
         }
 
@@ -203,6 +208,54 @@
                 font-size: 2.5rem;
             }
         }
+
+        .geometric {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.5); /* White border with 50% opacity */
+            animation: rotate 20s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Ensure content stays above geometric shapes */
+        .navbar, main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Adjust other elements for better contrast */
+        .navbar, .newsletter-form, .feature {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        #typed-heading {
+            min-height: 1.2em; /* Adjust based on your font size */
+            display: inline-block;
+        }
+
+        #typed-heading::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        #typed-heading.finished-typing::after {
+            content: none;
+        }
     </style>
 </head>
 <body>
@@ -222,9 +275,9 @@
 
     <main class="hero">
         <div class="hero-content">
-            <h1>A Newsletter <b>Just</b> for You</h1>
+            <h1 id="typed-heading"></h1>
             <div class="description">
-                Stay ahead with a personalized data pipelines crafted by our expert research team. Get the latest updates on regulations, market trends, and essential insights — tailored to you and your business.
+                Stay ahead with personalized data pipelines crafted by our expert research team. Get the latest updates on regulations, market trends, and essential insights — tailored to you and your business.
             </div>
             
             <div class="features">
@@ -246,7 +299,7 @@
             </div>
 
             <div class="newsletter-form">
-                <h2>Get Started</h2>
+                <h2>Get Started - Free Demo Newsletters</h2>
                 <form id="signup-form">
                     <div class="form-group">
                         <label for="email">Email Address</label>
@@ -262,11 +315,30 @@
         </div>
     </main>
 
+    <div style="height: 200vh;"></div>
+
     <script>
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            alert('Thank you for your interest! We will be in touch soon.');
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "A Newsletter Just for You";
+            const typedHeading = document.getElementById('typed-heading');
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    if (text.charAt(i) === ' ') {
+                        typedHeading.innerHTML += '&nbsp;';
+                    } else {
+                        typedHeading.innerHTML += text.charAt(i);
+                    }
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    typedHeading.classList.add('finished-typing');
+                    typedHeading.innerHTML = 'A Newsletter <b>Just</b> for You';
+                }
+            }
+
+            typeWriter();
         });
     </script>
 </body>
