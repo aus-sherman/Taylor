@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaylorIQ - Personalized Newsletter Platform</title>
+    <style>
+        :root {
+            --primary-green: #7BC67B;
+            --dark-text: #1A1A1A;
+            --light-bg: #F9FAF9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', serif;
+        }
+
+        body {
+            background: var(--light-bg);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .try-btn {
+            background: var(--primary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .try-btn:hover {
+            opacity: 0.9;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--primary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                margin: 3rem auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="tayloriq-high-resolution-logo-transparent.png" alt="TaylorIQ Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#how-it-works">How it Works</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+        <a href="#subscribe" class="try-btn">Try Now</a>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Your Personalized Newsletter Experience</h1>
+            <div class="description">
+                Get relevant, timely content delivered directly to your inbox. Our AI-powered platform adapts to your interests, ensuring you only receive the information that matters to you.
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">★</div>
+                    <h3>Personalized Content</h3>
+                    <p>Content tailored to your specific interests and preferences</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Stay informed with timely, relevant information</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Adaptive Learning</h3>
+                    <p>Our system learns from your interactions to improve over time</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter-form">
+            <h2>Get Started</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="interests">Primary Interest</label>
+                    <input type="text" id="interests" placeholder="e.g., Technology, Business, Science">
+                </div>
+                <button type="submit" class="submit-btn">Subscribe Now</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Thank you for your interest! We will be in touch soon.');
+        });
+    </script>
+</body>
+</html>
