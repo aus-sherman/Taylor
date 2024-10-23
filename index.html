@@ -238,8 +238,11 @@
         }
 
         #typed-heading {
-            min-height: 1.2em; /* Adjust based on your font size */
+            min-height: 1.2em;
             display: inline-block;
+            max-width: 100%; /* Ensure it doesn't exceed the screen width */
+            white-space: pre-wrap; /* Allow text to wrap */
+            word-break: break-word; /* Break long words if necessary */
         }
 
         #typed-heading::after {
@@ -325,13 +328,18 @@
 
             function typeWriter() {
                 if (i < text.length) {
-                    if (text.charAt(i) === ' ') {
+                    const char = text.charAt(i);
+                    if (char === ' ') {
                         typedHeading.innerHTML += '&nbsp;';
                     } else {
-                        typedHeading.innerHTML += text.charAt(i);
+                        typedHeading.innerHTML += char;
                     }
                     i++;
-                    setTimeout(typeWriter, 100);
+                    
+                    // Force layout recalculation to ensure proper wrapping
+                    typedHeading.offsetHeight;
+                    
+                    setTimeout(typeWriter, 50); // Slightly faster typing for mobile
                 } else {
                     typedHeading.classList.add('finished-typing');
                     typedHeading.innerHTML = 'A Newsletter <b>Just</b> for You';
