@@ -44,9 +44,9 @@
             background: repeating-linear-gradient(
                 90deg,
                 rgba(255, 255, 255, 0.5) 0px,
-                rgba(255, 255, 255, 0.5) 1px,
-                rgba(0, 0, 0, 0.02) 1px,
-                rgba(0, 0, 0, 0.02) 2px
+                rgba(255, 255, 255, 0.5) 2px,
+                rgba(0, 0, 0, 0.02) 2px,
+                rgba(0, 0, 0, 0.02) 4px
             );
             opacity: 0.7;
             pointer-events: none;
@@ -117,7 +117,6 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 2rem;
         }
 
         .nav-links {
@@ -210,6 +209,7 @@
             padding: 2rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            scroll-margin-top: 10px;
         }
 
         .newsletter-form h2 {
@@ -295,12 +295,7 @@
             <img src="tayloriq-high-resolution-logo-transparent.png" alt="TaylorIQ Logo">
         </div>
         <div class="nav-right">
-            <div class="nav-links">
-                <a href="#how-it-works">How it Works</a>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-            </div>
-            <a href="#subscribe" class="try-btn">Try Now</a>
+            <a href="#newsletter-form" class="try-btn">Try Now</a>
         </div>
     </nav>
 
@@ -314,8 +309,8 @@
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">★</div>
-                    <h3>Personalized Content</h3>
-                    <p>Content tailored to your specific interests and preferences</p>
+                    <h3>Forget generic newsletters full of fluff.</h3>
+                    <p>Your business is unique, and you deserve information that's relevant to your exact needs.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">⚡</div>
@@ -329,7 +324,7 @@
                 </div>
             </div>
 
-            <div class="newsletter-form">
+            <div class="newsletter-form" id="newsletter-form">
                 <h2>Get Started - Free Demo Newsletters</h2>
                 <form id="signup-form">
                     <div class="form-group">
@@ -387,6 +382,12 @@
             }
 
             startTyping();
+        });
+
+        document.querySelector('.try-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const newsletterForm = document.getElementById('newsletter-form');
+            newsletterForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     </script>
 </body>
