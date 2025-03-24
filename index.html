@@ -303,24 +303,44 @@
         <div class="hero-content">
             <h1 id="typed-heading"></h1>
             <div class="description">
-                Stay ahead with personalized data pipelines crafted by our research team. Get the latest updates on regulations, market trends, and essential insights — tailored to you and your business.
+                Your personalized news monitoring service that delivers only what matters—straight to your inbox. We handle the complexity so you can focus on what's important.
             </div>
             
             <div class="features">
                 <div class="feature">
-                    <div class="feature-icon">★</div>
-                    <h3>Forget Generic Newsletters</h3>
-                    <p>We deliver hyper-personalized insights designed specifically for your industry, role, and objectives—no irrelevant updates, no distractions.</p>
+                    <div class="feature-icon">Step 1</div>
+                    <h3>Initial Consultation (45-60 minutes)</h3>
+                    <p>We discuss your role, industry, and specific information requirements to understand exactly what intelligence you need.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Real-time Updates</h3>
-                    <p>Stay informed with timely, relevant information</p>
+                    <div class="feature-icon">Step 2</div>
+                    <h3>Custom Configuration (2-3 days)</h3>
+                    <p>Our research team configures the system with context specific to your role and industry.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">📈</div>
-                    <h3>Adaptive Learning</h3>
-                    <p>Our system learns from your interactions to improve over time</p>
+                    <div class="feature-icon">Step 3</div>
+                    <h3>Daily Intelligence Delivery</h3>
+                    <p>Receive concise, relevant, and properly cited intelligence reports directly in your inbox on your preferred schedule.</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 3rem 0 2rem;">Benefits</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Email Delivery</h3>
+                    <p>Information delivered directly to your inbox—no platforms to log into, no apps to check.</p>
+                </div>
+                <div class="feature">
+                    <h3>Zero Learning Curve</h3>
+                    <p>We handle all setup and configuration through a consultation—you never interact with the software.</p>
+                </div>
+                <div class="feature">
+                    <h3>Intelligent Filtering</h3>
+                    <p>Our sophisticated filters ensure you only see information that's truly relevant to your decisions.</p>
+                </div>
+                <div class="feature">
+                    <h3>Properly Cited Reports</h3>
+                    <p>Every piece of intelligence includes its source, so you can trust the information and dig deeper when needed.</p>
                 </div>
             </div>
 
@@ -341,7 +361,7 @@
         </div>
     </main>
 
-    <div style="height: 200vh;"></div>
+    <footer style="background: white; height: 100px; width: 100%; position: relative; z-index: 0;"></footer>
 
     <script>
         function isMobile() {
@@ -349,7 +369,7 @@
         }
 
         window.addEventListener('load', function() {
-            const text = "A Newsletter Just for You";
+            const text = "Executive Intelligence, Delivered.";
             const typedHeading = document.getElementById('typed-heading');
             let i = 0;
 
@@ -366,18 +386,18 @@
                     // Force layout recalculation to ensure proper wrapping
                     typedHeading.offsetHeight;
                     
-                    setTimeout(typeWriter, 75); // Increased delay between characters (was 50ms)
+                    setTimeout(typeWriter, 56); // Reduced by 25% from 75ms to 56ms
                 } else {
                     typedHeading.classList.add('finished-typing');
-                    typedHeading.innerHTML = 'A Newsletter <b>Just</b> for You';
+                    typedHeading.innerHTML = 'Executive Intelligence, Delivered.';
                 }
             }
 
             function startTyping() {
                 if (isMobile()) {
-                    setTimeout(typeWriter, 1500); // Increased initial delay for mobile (was 1000ms)
+                    setTimeout(typeWriter, 1125); // Reduced by 25% from 1500ms to 1125ms
                 } else {
-                    setTimeout(typeWriter, 500); // Added a small delay for desktop
+                    setTimeout(typeWriter, 375); // Reduced by 25% from 500ms to 375ms
                 }
             }
 
