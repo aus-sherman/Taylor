@@ -269,6 +269,14 @@
                 display: none;
             }
 
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
             .hero {
                 flex-direction: column;
                 margin: 3rem auto;
@@ -292,6 +300,10 @@
                 height: 1px;
                 width: auto;
                 background: rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-right > .try-btn {
+                display: none;
             }
         }
 
@@ -381,29 +393,6 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .mobile-nav {
-                display: block;
-            }
-
-            .hero {
-                flex-direction: column;
-                margin: 3rem auto;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
         }
 
         .hero h1 {
